@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winkel | Leather Store (Admin)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="admin-index.html" class="brand" id="brandLink">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="admin-index.html">Home</a>
+        <a href="admin-store.html">Winkel</a>
+        <a href="admin-gallery.html">Galerij</a>
+        <a href="admin-orders.html">Bestellingen</a>
+      </nav>
+      <div class="header-actions">
+        <!-- cart hidden in admin copy -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header container">
+      <p class="eyebrow">Winkel</p>
+      <h1>Onze collectie lederen producten</h1>
+      <p>Een selectie van onze afgewerkte producten. Elk item is met zorg gemaakt voor stijl en duurzaamheid.</p>
+    </section>
+
+    <section class="detail-panel container" id="productModal" hidden>
+      <div class="detail-panel-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="closeModal" type="button" aria-label="Sluit venster">×</button>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </section>
+
+    <section class="product-grid container" id="productGrid" aria-live="polite"></section>
+
+    <section class="container">
+      <div class="cart-summary" id="cartSummary"></div>
+    </section>
+
+    <section class="container" id="checkoutSection" hidden>
+      <div class="checkout-card">
+        <div class="checkout-header">
+          <p class="eyebrow">Checkout</p>
+          <h2>Vul je gegevens in</h2>
+          <p>We gebruiken deze gegevens om je bestelling te bevestigen en je een e-mail met betalingsinstructies te sturen.</p>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm">
+          <label>
+            <span>E-mailadres</span>
+            <input type="email" name="email" placeholder="jouw@email.com" required>
+          </label>
+          <label>
+            <span>Adres</span>
+            <input type="text" name="address" placeholder="Straat 12, 1234 AB Plaats" required>
+          </label>
+          <label>
+            <span>Telefoonnummer</span>
+            <input type="tel" name="phone" placeholder="06 12345678" required>
+          </label>
+          <div class="form-actions">
+            <button class="button button-secondary" type="button" id="cancelCheckout">Annuleren</button>
+            <button class="button button-primary" type="submit">Afrekenen</button>
+          </div>
+        </form>
+
+        <div class="checkout-confirmation" id="checkoutConfirmation" hidden>
+          <h3>Bedankt voor je bestelling!</h3>
+          <p>We hebben je gegevens ontvangen. Je ontvangt binnenkort een e-mail met betalingsinstructies.</p>
+          <p><strong>Tip:</strong> controleer ook je spammap als de e-mail niet meteen zichtbaar is.</p>
+          <div class="checkout-summary" id="checkoutSummary"></div>
+          <div class="form-actions">
+            <button class="button button-secondary" type="button" id="backToCart">Terug naar winkelmand</button>
+            <button class="button button-primary" type="button" id="sendPaymentMail">Afrekenen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="store-highlight container">
+      <div>
+        <h2>Op maat gemaakte oplossingen</h2>
+        <p>Wil je een eigen ontwerp of een gepersonaliseerd cadeau? Neem contact op en we maken iets speciaals voor jou.</p>
+      </div>
+      <a class="button button-secondary" href="admin-gallery.html">Meer inspiratie</a>
+    </section>
+
+    <!-- Admin edit panel (lightweight) -->
+
+    <section class="checkout-card container" style="margin-top:2rem;">
+        <div class="checkout-header">
+          <p class="eyebrow">Admin: product beheren</p>
+          <h2>Product toevoegen / aanpassen</h2>
+          <p>Deze veranderingen worden direct in de winkel zichtbaar.</p>
+        </div>
+
+        <div style="margin-bottom:1.25rem;">
+          <p class="eyebrow" style="margin:0 0 0.35rem;">Acties</p>
+          <div class="form-actions" style="justify-content:flex-start; gap:0.75rem;">
+            <button class="button button-secondary" type="button" id="reloadProductsBtn">Winkel producten herladen</button>
+          </div>
+        </div>
+
+        <div class="admin-product-manager">
+          <div class="checkout-header" style="margin-bottom: 1rem;">
+            <p class="eyebrow">Bestaande producten</p>
+            <h3>Pas elk product direct aan</h3>
+          </div>
+          <div id="existingProductsList"></div>
+        </div>
+
+        <form class="checkout-form" id="productForm">
+        <input type="hidden" name="productId" id="productId">
+
+        <label>
+          <span>Productnaam</span>
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          <span>Prijs (€)</span>
+          <input type="number" name="price" min="0" step="0.01" required>
+        </label>
+        <label>
+          <span>Korte beschrijving</span>
+          <input type="text" name="shortDescription" required>
+        </label>
+        <label>
+          <span>Beschrijving</span>
+          <textarea name="description" rows="4" style="border: 1px solid var(--border); border-radius: 16px; padding: 0.9rem 1rem; font: inherit;"></textarea>
+        </label>
+        <label>
+          <span>Materiaal</span>
+          <input type="text" name="material" value="Leder">
+        </label>
+        <label>
+          <span>Hoofdafbeelding</span>
+          <input type="text" id="mainImageUrl" name="mainImageUrl" placeholder="https://example.com/main-image.jpg" required>
+        </label>
+        <label>
+          <span>Extra foto-URL’s</span>
+          <div id="imageInputs" class="image-inputs"></div>
+          <button class="button button-secondary" type="button" id="addImageFieldBtn">Extra foto toevoegen</button>
+          <p class="hint">Voeg maximaal 5 extra foto’s toe. De eerste afbeelding verschijnt op de winkelpagina.</p>
+        </label>
+        <label>
+          <span>Kleurkeuzes</span>
+          <div id="colorInputs" class="color-inputs"></div>
+          <button class="button button-secondary" type="button" id="addColorFieldBtn">Kleur toevoegen</button>
+          <p class="hint">Voeg kleurvarianten toe die klanten kunnen kiezen in het productvenster. Voeg per kleur een foto toe zodat het product in die kleur zichtbaar is.</p>
+        </label>
+        <div class="form-actions">
+          <button class="button button-secondary" id="resetProductForm" type="button">Nieuw product</button>
+          <button class="button button-primary" type="submit">Product opslaan</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <p>Leather Store &bull; Leerbewerking winkel</p>
+      <p>Handgemaakt in Nederland met aandacht voor kwaliteit.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="admin-overlay.js"></script>
+  <script src="admin-store-edit.js"></script>
+  <script src="admin-full.js"></script>
+</body>
+</html>
+

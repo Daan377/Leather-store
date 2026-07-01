@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerij | Leather Store (Admin)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="admin-index.html" class="brand">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="admin-index.html">Home</a>
+        <a href="admin-store.html">Winkel</a>
+        <a href="admin-gallery.html">Galerij</a>
+        <a href="admin-orders.html">Bestellingen</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header container">
+      <p class="eyebrow">Galerij</p>
+      <h1>Inspiratie uit onze leerwerkplaats</h1>
+      <p>Bekijk een selectie van afgeronde projecten en productdetails die het vakmanschap laten zien.</p>
+    </section>
+
+    <section class="gallery-grid container" id="galleryGrid" aria-live="polite"></section>
+
+    <section class="checkout-card container" style="margin-top:2rem;">
+      <div class="checkout-header">
+        <p class="eyebrow">Admin: galerij beheren</p>
+        <h2>Afbeelding toevoegen</h2>
+        <p>Gebruik een foto-URL + caption. Verschijnt direct bij admin en bezoekers.</p>
+      </div>
+      <form class="checkout-form" id="galleryForm">
+        <label>
+          <span>Foto-URL</span>
+          <input type="text" name="image" placeholder="https://..." required>
+        </label>
+        <label>
+          <span>Caption</span>
+          <input type="text" name="caption" placeholder="Bijv. Rijke textuur en strak stiksel" required>
+        </label>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Toevoegen</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <p>Leather Store &bull; Leerbewerking winkel</p>
+      <p>Handgemaakt in Nederland met aandacht voor kwaliteit.</p>
+    </div>
+  </footer>
+
+  <script src="admin-full.js"></script>
+  <script src="admin-gallery-edit.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerij | Leather Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="store.html">Winkel</a>
+        <a href="gallery.html">Galerij</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-secondary" id="loginButton" type="button">Aanmelden</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header container">
+      <p class="eyebrow">Galerij</p>
+      <h1>Inspiratie uit onze leerwerkplaats</h1>
+      <p>Bekijk een selectie van afgeronde projecten en productdetails die het vakmanschap laten zien.</p>
+    </section>
+
+    <section class="gallery-grid container">
+      <p>Er zijn momenteel geen galerijfoto's.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <p>Leather Store &bull; Leerbewerking winkel</p>
+      <p>Handgemaakt in Nederland met aandacht voor kwaliteit.</p>
+    </div>
+  </footer>
+
+  <!-- Auth modal (shared) -->
+  <section class="detail-panel container" id="authModal" hidden>
+    <div class="detail-panel-inner" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="closeAuthModalBtn" type="button" aria-label="Sluit venster">×</button>
+      <div class="modal-content" id="authModalContent"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

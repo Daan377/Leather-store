@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Leather Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Leather Store Admin</a>
+      <nav class="nav">
+        <a href="store.html">Winkel</a>
+        <a href="gallery.html">Galerij</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 0 4rem;">
+    <section class="checkout-card" id="authPanel">
+      <div class="checkout-header">
+        <p class="eyebrow">Admin login</p>
+        <h2>Log in om bestellingen te beheren</h2>
+        <p>Gebruik je e-mailadres en wachtwoord om toegang te krijgen tot de admin-console.</p>
+      </div>
+      <form class="checkout-form" id="loginForm">
+        <label>
+          <span>E-mailadres</span>
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          <span>Wachtwoord</span>
+          <input type="password" name="password" required>
+        </label>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">Inloggen</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="checkout-card" id="dashboard" hidden>
+      <div class="checkout-header">
+        <p class="eyebrow">Admin dashboard</p>
+        <h2>Bestellingen & productbeheer</h2>
+        <p>Bekijk alle bestellingen en voeg snel nieuwe producten toe aan de winkel.</p>
+      </div>
+
+      <div class="checkout-summary" id="statusMessage" style="margin-top: 1rem;"></div>
+
+      <div style="margin-top: 2rem; display: grid; gap: 2rem;">
+        <div>
+          <h3>Bestellingen</h3>
+          <div id="ordersList" class="checkout-summary"></div>
+        </div>
+
+        <div>
+          <h3>Nieuw product toevoegen</h3>
+          <form class="checkout-form" id="productForm">
+            <label>
+              <span>Productnaam</span>
+              <input type="text" name="name" required>
+            </label>
+            <label>
+              <span>Prijs (€)</span>
+              <input type="number" name="price" min="0" step="0.01" required>
+            </label>
+            <label>
+              <span>Korte beschrijving</span>
+              <input type="text" name="shortDescription" required>
+            </label>
+            <label>
+              <span>Beschrijving</span>
+              <textarea name="description" rows="4" style="border: 1px solid var(--border); border-radius: 16px; padding: 0.9rem 1rem; font: inherit;"></textarea>
+            </label>
+            <label>
+              <span>Materiaal</span>
+              <input type="text" name="material" value="Leder">
+            </label>
+            <label>
+              <span>Hoofdafbeelding</span>
+              <input type="text" id="mainImageUrl" name="mainImageUrl" placeholder="https://example.com/main-image.jpg" required>
+            </label>
+            <label>
+              <span>Extra foto-URL’s</span>
+              <div id="imageInputs" class="image-inputs"></div>
+              <button class="button button-secondary" type="button" id="addImageFieldBtn">Extra foto toevoegen</button>
+              <p class="hint">Voeg maximaal 5 extra foto’s toe. De hoofdafbeelding verschijnt op de winkelpagina.</p>
+            </label>
+            <label>
+              <span>Kleurkeuzes</span>
+              <div id="colorInputs" class="color-inputs"></div>
+              <button class="button button-secondary" type="button" id="addColorFieldBtn">Kleur toevoegen</button>
+              <p class="hint">Voeg kleurvarianten toe die klanten kunnen kiezen in het productvenster.</p>
+            </label>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Product toevoegen</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Leather Store Admin</p>
+      <p>Beheer je winkel en bestellingen.</p>
+    </div>
+  </footer>
+
+  <script src="admin.js"></script>
+  <script src="admin-login-redirect.js"></script>
+</body>
+</html>
+

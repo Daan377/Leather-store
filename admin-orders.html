@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bestellingen | Leather Store (Admin)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="admin-index.html" class="brand">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="admin-index.html">Home</a>
+        <a href="admin-store.html">Winkel</a>
+        <a href="admin-gallery.html">Galerij</a>
+        <a href="admin-orders.html">Bestellingen</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 3rem 0 4rem;">
+    <section class="checkout-card" id="ordersPanel">
+      <div class="checkout-header">
+        <p class="eyebrow">Bestellingen</p>
+        <h2>Overzicht</h2>
+        <p>Toon e-mail van de klant en markeer of de bestelling afgerond is.</p>
+      </div>
+
+      <div class="checkout-summary" id="statusMessage" style="margin-top: 1rem;"></div>
+
+      <div style="margin-top:2rem;">
+        <h3>Bestellingen</h3>
+        <div id="ordersList" class="checkout-summary"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Leather Store Admin</p>
+      <p>Beheer je winkel en bestellingen.</p>
+    </div>
+  </footer>
+
+  <script src="admin-full.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winkel | Leather Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" id="brandLink">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="store.html">Winkel</a>
+        <a href="gallery.html">Galerij</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-button" id="cartButton" type="button" aria-label="Open winkelmandje">
+          <span>Winkelmand</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="button button-secondary" id="loginButton" type="button">Aanmelden</button>
+
+        <!-- Click-area for secret admin login (beside Home in the header layout) -->
+        <button class="secret-admin-trigger" id="secretAdminTrigger" type="button" aria-label="Admin trigger"></button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header container">
+      <p class="eyebrow">Winkel</p>
+      <h1>Onze collectie lederen producten</h1>
+      <p>Een selectie van onze afgewerkte producten. Elk item is met zorg gemaakt voor stijl en duurzaamheid.</p>
+    </section>
+
+    <section class="detail-panel container" id="productModal" hidden>
+      <div class="detail-panel-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="closeModal" type="button" aria-label="Sluit venster">×</button>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </section>
+
+    <!-- Auth modal (separate popup) -->
+    <section class="detail-panel container" id="authModal" hidden>
+      <div class="detail-panel-inner" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="modal-close" id="closeAuthModalBtn" type="button" aria-label="Sluit venster">×</button>
+        <div class="modal-content" id="authModalContent"></div>
+      </div>
+    </section>
+
+    <section class="product-grid container" id="productGrid" aria-live="polite"></section>
+
+    <section class="container">
+      <div class="cart-summary" id="cartSummary"></div>
+    </section>
+
+    <section class="container" id="checkoutSection" hidden>
+      <div class="checkout-card">
+        <div class="checkout-header">
+          <p class="eyebrow">Checkout</p>
+          <h2>Vul je gegevens in</h2>
+          <p>We gebruiken deze gegevens om je bestelling te bevestigen en je een e-mail met betalingsinstructies te sturen.</p>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm">
+          <label>
+            <span>E-mailadres</span>
+            <input type="email" name="email" placeholder="jouw@email.com" required>
+          </label>
+          <label>
+            <span>Adres</span>
+            <input type="text" name="address" placeholder="Straat 12, 1234 AB Plaats" required>
+          </label>
+          <label>
+            <span>Telefoonnummer</span>
+            <input type="tel" name="phone" placeholder="06 12345678" required>
+          </label>
+          <div class="form-actions">
+            <button class="button button-secondary" type="button" id="cancelCheckout">Annuleren</button>
+            <button class="button button-primary" type="submit">Afrekenen</button>
+          </div>
+        </form>
+
+        <div class="checkout-confirmation" id="checkoutConfirmation" hidden>
+          <h3>Bedankt voor je bestelling!</h3>
+          <p>We hebben je gegevens ontvangen. Je ontvangt binnenkort een e-mail met betalingsinstructies.</p>
+          <p><strong>Tip:</strong> controleer ook je spammap als de e-mail niet meteen zichtbaar is.</p>
+          <div class="checkout-summary" id="checkoutSummary"></div>
+          <div class="form-actions">
+            <button class="button button-secondary" type="button" id="backToCart">Terug naar winkelmand</button>
+            <button class="button button-primary" type="button" id="sendPaymentMail">Afrekenen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="store-highlight container">
+      <div>
+        <h2>Op maat gemaakte oplossingen</h2>
+        <p>Wil je een eigen ontwerp of een gepersonaliseerd cadeau? Neem contact op en we maken iets speciaals voor jou.</p>
+      </div>
+      <a class="button button-secondary" href="gallery.html">Meer inspiratie</a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <p>Leather Store &bull; Leerbewerking winkel</p>
+      <p>Handgemaakt in Nederland met aandacht voor kwaliteit.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="admin-overlay.js"></script>
+</body>
+</html>

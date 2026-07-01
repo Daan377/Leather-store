@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leather Store | Leerbewerking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" id="brandLink">Leather Store</a>
+      <nav class="nav" id="navMenu">
+        <a href="index.html">Home</a>
+        <a href="store.html">Winkel</a>
+        <a href="gallery.html">Galerij</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Click-area for secret admin login (beside header items) -->
+      <button class="secret-admin-trigger" id="secretAdminTrigger" type="button" aria-label="Admin trigger"></button>
+
+      <div class="header-actions">
+        <button class="button button-secondary" id="loginButton" type="button">Aanmelden</button>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu openen">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Ambachtelijk leerwerk</p>
+        <h1>Ontdek handgemaakte lederwaren met moderne uitstraling</h1>
+        <p>Van stijlvolle portemonnees tot duurzame tassen, onze collectie combineert kwaliteit, comfort en tijdloos vakmanschap.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="store.html">Bekijk de winkel</a>
+          <a class="button button-secondary" href="gallery.html">Bekijk de galerij</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features container">
+      <article>
+        <h2>Premium materialen</h2>
+        <p>We werken met volnerfleer en hoogwaardig afwerkingsmateriaal voor producten die jarenlang mooi blijven.</p>
+      </article>
+      <article>
+        <h2>Uniek ontwerp</h2>
+        <p>Functioneel en stijlvol. Elk product is ontworpen voor dagelijks gebruik zonder in te boeten aan elegantie.</p>
+      </article>
+      <article>
+        <h2>Duurzaam vakmanschap</h2>
+        <p>Met aandacht voor detail realiseren we tijdloze items die comfort en duurzaamheid combineren.</p>
+      </article>
+    </section>
+
+    <section class="highlight-section">
+      <div class="container highlight-grid">
+        <div class="highlight-image"></div>
+        <div class="highlight-text">
+          <p class="eyebrow">Nieuw in de winkel</p>
+          <h2>Limited edition collectie</h2>
+          <p>Ontdek onze exclusieve serie lederen accessoires, inclusief gepersonaliseerde ritszakken, sierlijke keycords en elegante leren cases.</p>
+          <a class="button button-primary" href="store.html">Shop nu</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials container">
+      <h2>Wat klanten zeggen</h2>
+      <div id="frontReviews" class="testimonial-grid"></div>
+      <div id="frontWriteReview" class="container"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <p>Leather Store &bull; Leerbewerking winkel</p>
+      <p>Handgemaakt in Nederland met aandacht voor kwaliteit.</p>
+    </div>
+  </footer>
+
+  <!-- Auth modal (shared) -->
+  <section class="detail-panel container" id="authModal" hidden>
+    <div class="detail-panel-inner" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="closeAuthModalBtn" type="button" aria-label="Sluit venster">×</button>
+      <div class="modal-content" id="authModalContent"></div>
+    </div>
+  </section>
+
+  
+  <script src="script.js"></script>
+  <script src="admin-overlay.js"></script>
+</body>
+</html>
